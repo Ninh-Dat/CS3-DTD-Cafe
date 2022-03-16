@@ -27,7 +27,7 @@ class CategorySeeder extends Seeder
         $categories->save();
 
         $categories = new Category();
-        $categories->name="Dá bào";
+        $categories->name="Đá bào";
         $categories->save();
     }
 }

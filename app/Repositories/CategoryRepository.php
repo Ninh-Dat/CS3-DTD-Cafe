@@ -11,4 +11,20 @@ class CategoryRepository extends BaseRepository
     {
        return Category::class;
     }
+
+    public function store($request)
+    {
+        $category = new Category();
+        $category->name = $request->name;
+        $category->save();
+
+    }
+
+    public function update($request,$id)
+    {
+        $category = Category::find($id);
+        $category->name = $request->name;
+        $category->save();
+    }
+
 }
