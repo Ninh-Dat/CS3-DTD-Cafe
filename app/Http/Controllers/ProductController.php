@@ -15,8 +15,8 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products=$this->productRepository->getAll();
-    return view('backend.product.list', compact('products'));
+        $products = $this->productRepository->getAll();
+        return view('backend.product.list',compact('products'));
     }
     public function create()
     {
