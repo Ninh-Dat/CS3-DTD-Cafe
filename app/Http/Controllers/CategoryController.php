@@ -43,8 +43,8 @@ class CategoryController extends Controller
 
     public function show($id)
     {
-//        $category = $this->categoryRepository->getById($id);
-//        return view('backend.category.detail', compact('category'));
+        $category = $this->categoryRepository->getById($id);
+        return view('backend.category.detail', compact('category'));
     }
 
     /**
