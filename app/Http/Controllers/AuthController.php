@@ -25,8 +25,9 @@ class AuthController extends Controller
 //            return redirect()->route('products.index');
             return view('welcome');
         } else {
-            Session::flash('msg', 'Tài khoản, mật khẩu không đúng');
+            Session::flash('msg', 'Tài khoản hoặc mật khẩu không đúng');
             return redirect()->back();
         }
+
     }
 }
