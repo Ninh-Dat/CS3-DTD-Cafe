@@ -1,6 +1,9 @@
 <?php
+
 namespace App\Repositories;
+
 use App\Repositories\Impl\BaseInterface;
+
 abstract class BaseRepository implements BaseInterface
 {
     public $model;
@@ -14,12 +17,12 @@ abstract class BaseRepository implements BaseInterface
 
     public function getAll()
     {
-      return $this->model->all();
+        return $this->model::all();
     }
 
     public function getById($id)
     {
-        // TODO: Implement getById() method.
+      return $this->model::findOrFail($id);
     }
 
     public function deleteById($id)
