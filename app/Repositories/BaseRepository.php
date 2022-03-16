@@ -22,7 +22,10 @@ abstract class BaseRepository implements BaseInterface
 
     public function getById($id)
     {
+<<<<<<< HEAD
 
+=======
+>>>>>>> fd6486c51b1258f60ef5ab6e32240b5f2c20dee6
         return $this->model::findOrFail($id);
     }
 
