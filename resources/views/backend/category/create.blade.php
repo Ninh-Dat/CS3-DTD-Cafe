@@ -8,7 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-<form action="" method="post">
+<form action="{{route('category.store')}}" method="post">
+    @csrf
     <input type="text" name="name" placeholder="nhap name">
     <button>Create</button>
 </form>
