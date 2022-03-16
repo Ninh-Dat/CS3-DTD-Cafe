@@ -22,11 +22,11 @@ abstract class BaseRepository implements BaseInterface
 
     public function getById($id)
     {
-      return $this->model::findOrFail($id);
+        return $this->model::findOrFail($id);
     }
 
     public function deleteById($id)
     {
-        // TODO: Implement deleteById() method.
+        return $this->model::destroy($id);
     }
 }
