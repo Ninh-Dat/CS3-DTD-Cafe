@@ -1,6 +1,9 @@
 <?php
+
 namespace App\Repositories;
+
 use App\Repositories\Impl\BaseInterface;
+
 abstract class BaseRepository implements BaseInterface
 {
     public $model;
@@ -19,6 +22,7 @@ abstract class BaseRepository implements BaseInterface
 
     public function getById($id)
     {
+
         return $this->model::findOrFail($id);
     }
 

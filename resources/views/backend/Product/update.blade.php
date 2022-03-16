@@ -8,32 +8,15 @@
     <title>Document</title>
 </head>
 <body>
-<table>
-    <a href="{{route()}}">tạo sản phẩm</a>
-    <thead>
-    <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>title</th>
-        <th>price</th>
-        <th>img</th>
-        <th>description</th>
-        <th>category_id</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach($products as $key=>$product)
-        <tr>
-            <td>{{$key+1}}</td>
-            <td>{{$product->name}}</td>
-            <td>{{$product->title}}</td>
-            <td>{{$product->price}}</td>
-            <td>{{$product->img}}</td>
-            <td>{{$product->description}}</td>
-            <td>{{$product->category_id}}</td>
-        </tr>
-    @endforeach
-    </tbody>
-</table>
+<form action="" method="post" enctype="multipart/form-data">
+    @csrf
+    <input type="text" name="name" placeholder="nhập tên" value="{{$product->name}}">
+    <input type="text" name="title" placeholder="nhập tiêu đề" value="{{$product->title}}">
+    <input type="number" name="price" placeholder="nhập giá" value="{{$product->price}}">
+    <input type="file" name="img" placeholder="nhập ảnh" value="{{$product->img}}">
+    <input type="text" name="description" placeholder="nhập mô tả" value="{{$product->description}}">
+    <input type="number" name="category_id" value="1" hidden value="{{$product->category_id}}">
+    <button>Update</button>
+</form>
 </body>
 </html>

@@ -13,6 +13,7 @@
 <body>
 <div class="container">
 <table class="table">
+    <a href="{{route('products.create')}}">CREATE</a>
     <thead class="thead-dark">
     <tr>
         <th scope="col">Stt</th>
@@ -29,13 +30,14 @@
     @foreach($products as $key=>$product)
         <tr>
             <td>{{$key+1}}</td>
-            <td>{{$product->img}}</td>
+            <td><img src="{{asset('storage/'.$product->img)}}" width="150px" alt=""></td>
             <td>{{$product->name}}</td>
             <td>{{$product->title}}</td>
             <td>{{$product->price}}</td>
             <td>{{$product->description}}</td>
             <td>{{$product->category_id}}</td>
             <td><a href="{{route('products.show',$product->id)}}" type="button" class="btn btn-info">Detail</a></td>
+            <td><a href="{{route('products.edit',$product->id)}}" type="button" class="btn btn-info">Update</a></td>
             <td><a onclick="return confirm('Bạn có muốn xóa sản phẩm này không')" href="{{route('products.destroy',$product->id)}}" type="button" class="btn btn-info">Delete</a></td>
             <td></td>
             <td></td>

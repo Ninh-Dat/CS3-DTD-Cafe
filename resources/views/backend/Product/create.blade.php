@@ -1,3 +1,7 @@
+@extends("backend.master")
+@section('title','Danh sách sản phẩm')
+@section('content')
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,33 +12,16 @@
     <title>Document</title>
 </head>
 <body>
-<table>
-    <a href="{{route()}}">tạo sản phẩm</a>
-    <thead>
-    <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>title</th>
-        <th>price</th>
-        <th>img</th>
-        <th>description</th>
-        <th>category_id</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach($products as $key=>$product)
-        <tr>
-            <td>{{$key+1}}</td>
-            <td>{{$product->name}}</td>
-            <td>{{$product->title}}</td>
-            <td>{{$product->price}}</td>
-            <td>{{$product->img}}</td>
-            <td>{{$product->description}}</td>
-            <td>{{$product->category_id}}</td>
-        </tr>
-    @endforeach
-    </tbody>
-</table>
+<form action="" method="post" enctype="multipart/form-data">
+    @csrf
+    <input type="text" name="name" placeholder="nhập tên">
+    <input type="text" name="title" placeholder="nhập tiêu đề">
+    <input type="number" name="price" placeholder="nhập giá">
+    <input type="file" name="img" placeholder="nhập ảnh">
+    <input type="text" name="description" placeholder="nhập mô tả">
+    <input type="number" name="category_id" value="1" hidden>
+    <button>Create</button>
+</form>
 </body>
 </html>
-
+@endsection
