@@ -35,6 +35,10 @@
             <td>{{$product->price}}</td>
             <td>{{$product->description}}</td>
             <td>{{$product->category_id}}</td>
+            <td><a href="{{route('products.show',$product->id)}}" type="button" class="btn btn-info">Detail</a></td>
+            <td><a onclick="return confirm('Bạn có muốn xóa sản phẩm này không')" href="{{route('products.destroy',$product->id)}}" type="button" class="btn btn-info">Delete</a></td>
+            <td></td>
+            <td></td>
         </tr>
     @endforeach
     </tbody>

@@ -1,4 +1,7 @@
-<!doctype html>
+@extends('backend.master')
+    @section('title','thông tin sản phẩm ')
+    @section('content')
+    <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +12,6 @@
 </head>
 <body>
 <table>
-    <a href="{{route()}}">tạo sản phẩm</a>
     <thead>
     <tr>
         <th>id</th>
@@ -22,19 +24,19 @@
     </tr>
     </thead>
     <tbody>
-    @foreach($products as $key=>$product)
-        <tr>
-            <td>{{$key+1}}</td>
-            <td>{{$product->name}}</td>
-            <td>{{$product->title}}</td>
-            <td>{{$product->price}}</td>
-            <td>{{$product->img}}</td>
-            <td>{{$product->description}}</td>
-            <td>{{$product->category_id}}</td>
-        </tr>
-    @endforeach
+    <tr>
+        <td>{{$product->id}}</td>
+        <td>{{$product->name}}</td>
+        <td>{{$product->title}}</td>
+        <td>{{$product->price}}</td>
+        <td>{{$product->img}}</td>
+        <td>{{$product->description}}</td>
+        <td>{{$product->category_id}}</td>
+    </tr>
     </tbody>
 </table>
 </body>
 </html>
 
+
+@endsection

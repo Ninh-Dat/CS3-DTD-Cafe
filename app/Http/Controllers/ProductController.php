@@ -30,8 +30,8 @@ class ProductController extends Controller
 
     public function show($id)
     {
-//        $product=$this->productRepository->getById($id);
-//        return view('backend.product.detail')
+        $product=$this->productRepository->getById($id);
+        return view('backend.product.detail', compact('product'));
 
     }
     public function edit($id)
@@ -46,6 +46,7 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-        //
+        $this->productRepository->deleteById($id);
+        return redirect()->route('products.index');
     }
 }
