@@ -1,9 +1,10 @@
-
 <?php
+
+namespace App\Repositories\Impl;
 
 interface BaseInterface
 {
     public function getAll();
-    public function getBuyId($id);
-    public function deleteBuyId($id);
+    public function getById($id);
+    public function deleteById($id);
 }
