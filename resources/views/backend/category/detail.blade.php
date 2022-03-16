@@ -1,0 +1,10 @@
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+    <tr>
+        <td>{{$category->id}}</td>
+        <td>{{$category->name}}</td>
+    </tr>
+</table>
