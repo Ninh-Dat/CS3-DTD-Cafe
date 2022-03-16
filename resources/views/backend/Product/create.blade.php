@@ -1,5 +1,5 @@
 @extends("backend.master")
-@section('title','Danh sách sản phẩm')
+@section('title','thêm mới sản phẩm')
 @section('content')
 
 <!doctype html>

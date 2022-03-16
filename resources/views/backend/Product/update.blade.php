@@ -1,3 +1,6 @@
+@extends("backend.master")
+@section('title','chỉnh sửa sản phẩm')
+@section('content')
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,3 +23,4 @@
 </form>
 </body>
 </html>
+@endsection
