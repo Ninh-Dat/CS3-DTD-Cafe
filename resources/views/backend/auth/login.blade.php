@@ -109,8 +109,12 @@
         <div class="form_div">
             <label style="font-size: 20px">Email:</label>
             <input class="field_class" name="email" type="text" placeholder="abc@gmail.com" autofocus>
+            <p style="color: red">{{($errors->has('email'))? $errors->first('email') : ""}}</p>
+
             <label style="font-size: 20px">Password:</label>
             <input id="pass" class="field_class" name="password" type="password" placeholder="password">
+            <p style="color: red">{{($errors->has('password'))? $errors->first('password') : ""}}</p>
+
             <button class="submit_class" type="submit" form="login_form">Login</button>
         </div>
         <div class="info_div">
