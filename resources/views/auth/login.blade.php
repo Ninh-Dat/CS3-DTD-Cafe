@@ -114,7 +114,7 @@
             <button class="submit_class" type="submit" form="login_form">Login</button>
         </div>
         <div class="info_div">
-{{--            <p>Đăng ký tài khoản <a href="{{route('register')}}">Register!</a></p>--}}
+            <p>Đăng ký tài khoản <a href="{{route('register')}}">Register!</a></p>
         </div>
     </form>
 </main>

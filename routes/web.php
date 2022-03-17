@@ -15,8 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('auth.register');
 });
 
 Route::post('/login',[AuthController::class,'login'])->name('login');
 Route::get('/formLogin',[AuthController::class,'showFormLogin'])->name('showFormLogin');
+
+
+
+Route::get("/register",[AuthController::class,'showFormRegister'])->name("showForm");
+Route::post("/register",[AuthController::class,'register'])->name("register")->middleware('checkRegister');

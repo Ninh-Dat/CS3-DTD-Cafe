@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+
     public function oder()
     {
         return $this->hasMany(Order::class);
@@ -28,8 +29,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'role_id',
         'email',
         'password',
+        'address',
+        'phone'
     ];
 
     /**
