@@ -9,7 +9,7 @@ class Status extends Model
 {
     use HasFactory;
 
-    public function oder()
+    public function oders()
     {
         return $this->hasMany(Order::class);
     }
