@@ -26,7 +26,21 @@ class AuthController extends Controller
     }
 
     public function login(Request $request){
-        if ($this->userService->login($request)){
+
+
+        $valition = $request->validate([
+            'email'=>'required',
+            'password'=>'required',
+            ],
+
+            [
+                "email.required"=>"Điền thông tin email",
+                "password.required"=>"Điền mật khẩu",
+
+            ]
+        );
+
+        if ($this->userService->login($valition)){
             return redirect()->route('products.index');
 
         } else {
@@ -62,7 +76,8 @@ class AuthController extends Controller
                 "confirmPassword.required"=>"Nhập lại mật khẩu",
                 "address.required"=>"Điền thông tin địa chỉ",
                 "phone.required"=>"Điền  số điện thoại",
-            ]);
+            ]
+        );
 
          $this->userService->create($valition);
         return redirect()->route('showFormLogin');
