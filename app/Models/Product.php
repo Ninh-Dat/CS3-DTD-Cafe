@@ -9,12 +9,12 @@ class Product extends Model
 {
     use HasFactory;
 
-    public function oder()
+    public function order()
     {
     return $this->belongsToMany(Order::class);
     }
 
-    public function oderdetail()
+    public function oderdetails()
     {
         return $this->hasMany(OrderDetail::class);
     }
