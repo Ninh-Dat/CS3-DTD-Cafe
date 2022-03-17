@@ -20,12 +20,10 @@ class CategoryController extends Controller
         return view('backend.category.list', compact('categories'));
     }
 
-
     public function create()
     {
         return view('backend.category.create');
     }
-
 
     public function store(Request $request)
     {
