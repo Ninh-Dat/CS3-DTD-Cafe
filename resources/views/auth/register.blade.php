@@ -186,10 +186,11 @@
 
             <input type="text" name="name" placeholder="Tên khách hàng"/>
             <select name="role_id">
-                    @foreach($roles as $role)
-                        <option value="{{$role->id}}">{{$role->name}}</option>
-                    @endforeach
+                @foreach($roles as $role)
+                    <option value="{{$role->id}}">{{$role->name}}</option>
+                @endforeach
             </select>
+
             <input type="text" name="email" placeholder="abc@gmail.com"/>
             <input type="password" name="password" placeholder="Mật khẩu"/>
             <input type="password" name="confirmPassword" placeholder="Nhập lại mật khẩu"/>

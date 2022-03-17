@@ -20,19 +20,13 @@ class CategoryController extends Controller
         return view('backend.category.list', compact('categories'));
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> fd6486c51b1258f60ef5ab6e32240b5f2c20dee6
     public function create()
     {
         return view('backend.category.create');
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> fd6486c51b1258f60ef5ab6e32240b5f2c20dee6
     public function store(Request $request)
     {
         $this->categoryRepository->store($request);
@@ -53,10 +47,6 @@ class CategoryController extends Controller
         return view('backend.category.update',compact('category'));
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> fd6486c51b1258f60ef5ab6e32240b5f2c20dee6
     public function update(Request $request, $id)
     {
         $this->categoryRepository->update($request,$id);
