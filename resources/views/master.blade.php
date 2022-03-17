@@ -18,10 +18,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{route('category.index')}}">Thể loại<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('products.index')}}">Sản phẩm<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" style="color: #2cc0af" href="{{route('products.create')}}">Thêm sản phẩm</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  style="color:blue" href="{{route('category.create')}}">Thêm thể loại</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
