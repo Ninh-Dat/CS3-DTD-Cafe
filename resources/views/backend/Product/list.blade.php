@@ -7,14 +7,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Sản phẩm</title>
 </head>
 <body>
 <div class="container">
-<table class="table">
-    <a href="{{route('products.create')}}">CREATE</a>
+<table border="1" class="table">
+{{--    <a href="{{route('products.create')}}">CREATE</a>--}}
     <thead class="thead-dark">
-    <tr>
+    <tr style="text-align: center">
         <th scope="col">Stt</th>
         <th scope="col">Ảnh</th>
         <th scope="col">Tên</th>
@@ -22,6 +22,7 @@
         <th scope="col">Giá</th>
         <th scope="col">Nội dung</th>
         <th scope="col">Thể loại</th>
+        <th scope="col" colspan="4">Lựa chọn</th>
 
     </tr>
     </thead>
@@ -37,9 +38,7 @@
             <td>{{$product->category_id}}</td>
             <td><a href="{{route('products.show',$product->id)}}" type="button" class="btn btn-info">Detail</a></td>
             <td><a href="{{route('products.edit',$product->id)}}" type="button" class="btn btn-info">Update</a></td>
-            <td><a onclick="return confirm('Bạn có muốn xóa sản phẩm này không')" href="{{route('products.destroy',$product->id)}}" type="button" class="btn btn-info">Delete</a></td>
-            <td></td>
-            <td></td>
+            <td><a onclick="return confirm('Bạn có muốn xóa sản phẩm này không')" href="{{route('products.destroy',$product->id)}}" type="button" class="btn btn-danger">Delete</a></td>
         </tr>
     @endforeach
     </tbody>
