@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::middleware('checkAuth')->group(function () {
+
+    Route::get('/', function () {
 
     return view('backend.master');
 });
@@ -34,16 +36,25 @@ Route::prefix('products')->group(function (){
 });
 
 
-Route::prefix('category')->group(function () {
-    Route::get('/index', [CategoryController::class, 'index'])->name('category.index');
-    Route::get('{id}/detail', [CategoryController::class, 'show'])->name('category.detail');
-    Route::get('{id}/delete', [CategoryController::class, 'destroy'])->name('category.destroy');
-    Route::get('{id}/update', [CategoryController::class, 'edit'])->name('category.edit');
-    Route::post('{id}/update', [CategoryController::class, 'update'])->name('category.update');
-    Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
-    Route::post('/create', [CategoryController::class, 'store'])->name('category.store');
-    return view('auth.login');
+    Route::prefix('category')->group(function () {
+        Route::get('/index', [CategoryController::class, 'index'])->name('category.index');
+        Route::get('{id}/detail', [CategoryController::class, 'show'])->name('category.detail');
+        Route::get('{id}/delete', [CategoryController::class, 'destroy'])->name('category.destroy');
+        Route::get('{id}/update', [CategoryController::class, 'edit'])->name('category.edit');
+        Route::post('{id}/update', [CategoryController::class, 'update'])->name('category.update');
+        Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
+        Route::post('/create', [CategoryController::class, 'store'])->name('category.store');
+
+    });
 });
 
 Route::post('/login',[AuthController::class,'login'])->name('login');
 Route::get('/formLogin',[AuthController::class,'showFormLogin'])->name('showFormLogin');
+
+
+
+Route::get("/register",[AuthController::class,'showFormRegister'])->name("showForm");
+Route::post("/register",[AuthController::class,'register'])->name("register")->middleware('checkRegister');
+
+
+Route::get('/logout',[AuthController::class,'logout'])->name('logout');

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,6 +8,7 @@
     <title>Register</title>
     <style>
         @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+
         *:focus {
             outline: none;
         }
@@ -28,7 +29,7 @@
             position: relative;
             margin: 5% auto;
             width: 600px;
-            height: 400px;
+            height: 550px;
             background: #FFF;
             border-radius: 2px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -41,7 +42,7 @@
             box-sizing: border-box;
             padding: 40px;
             width: 300px;
-            height: 400px;
+            height: 500px;
         }
 
         h1 {
@@ -51,7 +52,8 @@
         }
 
         input[type="text"],
-        input[type="password"] {
+        input[type="password"],
+        input[type="number"] {
             display: block;
             box-sizing: border-box;
             margin-bottom: 20px;
@@ -67,7 +69,8 @@
         }
 
         input[type="text"]:focus,
-        input[type="password"]:focus {
+        input[type="password"]:focus,
+        input[type="number"]:focus {
             border-bottom: 2px solid #16a085;
             color: #16a085;
             transition: 0.2s ease;
@@ -175,27 +178,41 @@
 </head>
 <body>
 
+<form action="{{route('register')}}" method="post">
+    @csrf
+    <div id="login-box">
+        <div class="left">
+            <h1>Sign up</h1>
 
-<div id="login-box">
-    <div class="left">
-        <h1>Sign up</h1>
+            <input type="text" name="name" placeholder="Tên khách hàng"/>
+            <select name="role_id">
+                @foreach($roles as $role)
+                    <option value="{{$role->id}}">{{$role->name}}</option>
+                @endforeach
+            </select>
 
-        <input type="text" name="username" placeholder="Username" />
-        <input type="text" name="email" placeholder="E-mail" />
-        <input type="password" name="password" placeholder="Password" />
-        <input type="password" name="password2" placeholder="Retype password" />
+            <input type="text" name="email" placeholder="abc@gmail.com"/>
+            <input type="password" name="password" placeholder="Mật khẩu"/>
+            <input type="password" name="confirmPassword" placeholder="Nhập lại mật khẩu"/>
+            @if(\Illuminate\Support\Facades\Session::has('msg'))
+                <h3 style="color: red">{{\Illuminate\Support\Facades\Session::get('msg')}}</h3>
+            @endif
+            <input type="text" name="address" placeholder="Phường - Quận - Thành Phố"/>
+            <input type="number" name="phone" placeholder="Số điện thoại"/>
 
-        <input type="submit" name="signup_submit" value="Sign me up" />
+            <input type="submit" name="signup_submit" value="Sign me up"/>
+            <div class="small"><a href="{{route('showFormLogin')}}">Have an account? Go to login</a></div>
+        </div>
+
+        <div class="right">
+            <span class="loginwith">Sign in with<br/>social network</span>
+
+            <button class="social-signin facebook">Log in with facebook</button>
+            <button class="social-signin twitter">Log in with Twitter</button>
+            <button class="social-signin google">Log in with Google+</button>
+        </div>
+        <div class="or">OR</div>
     </div>
-
-    <div class="right">
-        <span class="loginwith">Sign in with<br />social network</span>
-
-        <button class="social-signin facebook">Log in with facebook</button>
-        <button class="social-signin twitter">Log in with Twitter</button>
-        <button class="social-signin google">Log in with Google+</button>
-    </div>
-    <div class="or">OR</div>
-</div>
+</form>
 </body>
 </html>

@@ -4,9 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
-class CheckAuth
+class CheckRegister
 {
     /**
      * Handle an incoming request.
@@ -17,8 +17,9 @@ class CheckAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check()){
-            return redirect()->route('showFormLogin');
+        if ($request->password != $request->confirmPassword){
+            Session::flash('msg',"Xác nhận mật khẩu không thành công");
+            return redirect()->back();
         }
         return $next($request);
     }

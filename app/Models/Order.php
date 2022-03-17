@@ -15,7 +15,7 @@ class Order extends Model
         return $this->belongsToMany(Product::class);
     }
 
-    public function oderdetail()
+    public function oderdetails()
     {
         return $this->hasMany(OrderDetail::class);
     }
