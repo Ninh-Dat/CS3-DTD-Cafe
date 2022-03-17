@@ -14,7 +14,7 @@ class OrderDetail extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function oder()
+    public function order()
     {
         return $this->belongsTo(Order::class);
     }

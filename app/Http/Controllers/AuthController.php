@@ -21,13 +21,13 @@ class AuthController extends Controller
 
     public function showFormLogin()
     {
-        return view('auth.login');
+        return view('backend.auth.login');
     }
 
     public function login(Request $request){
         if ($this->userService->login($request)){
-//            return redirect()->route('products.index');
-            return view('welcome');
+            return redirect()->route('products.index');
+
         } else {
             Session::flash('msg', 'Tài khoản hoặc mật khẩu không đúng');
             return redirect()->back();
@@ -38,7 +38,7 @@ class AuthController extends Controller
     public function showFormRegister()
     {
         $roles = $this->roleRepository->getAll();
-        return view('auth.register', compact('roles'));
+        return view('backend.auth.register', compact('roles'));
     }
 
     public function register(Request $request)

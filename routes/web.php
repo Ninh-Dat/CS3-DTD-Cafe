@@ -17,10 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.register');
-
-
-//    return view('backend.master');
+    return view('backend.master');
 });
 Route::prefix('products')->group(function (){
     Route::get('/index',[ProductController::class,"index"])->name('products.index');
