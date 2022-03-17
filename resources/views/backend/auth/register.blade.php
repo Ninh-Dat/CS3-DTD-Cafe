@@ -29,10 +29,10 @@
             position: relative;
             margin: 5% auto;
             width: 600px;
-            height: 550px;
-            background: #FFF;
+            height: 700px;
+            /*background: #FFF;*/
             border-radius: 2px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+            /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);*/
         }
 
         .left {
@@ -182,26 +182,36 @@
     @csrf
     <div id="login-box">
         <div class="left">
-            <h1>Sign up</h1>
+            <h1 style="font-weight: bold">Sign up</h1>
 
             <input type="text" name="name" placeholder="Tên khách hàng"/>
+            <p style="color: red">{{($errors->has('name'))? $errors->first('name') : ""}}</p>
+
             <select name="role_id">
+                <option>--Tùy chọn--</option>
                 @foreach($roles as $role)
                     <option value="{{$role->id}}">{{$role->name}}</option>
                 @endforeach
             </select>
+            <p style="color: red">{{($errors->has('role_id'))? $errors->first('role_id') : ""}}</p>
 
             <input type="text" name="email" placeholder="abc@gmail.com"/>
+            <p style="color: red">{{($errors->has('email'))? $errors->first('email') : ""}}</p>
             <input type="password" name="password" placeholder="Mật khẩu"/>
+            <p style="color: red">{{($errors->has('password'))? $errors->first('password') : ""}}</p>
             <input type="password" name="confirmPassword" placeholder="Nhập lại mật khẩu"/>
-            @if(\Illuminate\Support\Facades\Session::has('msg'))
+            <p style="color: red">{{($errors->has('confirmPassword'))? $errors->first('confirmPassword') : ""}}</p>
+        @if(\Illuminate\Support\Facades\Session::has('msg'))
                 <h3 style="color: red">{{\Illuminate\Support\Facades\Session::get('msg')}}</h3>
             @endif
             <input type="text" name="address" placeholder="Phường - Quận - Thành Phố"/>
+            <p style="color: red">{{($errors->has('address'))? $errors->first('address') : ""}}</p>
             <input type="number" name="phone" placeholder="Số điện thoại"/>
+            <p style="color: red">{{($errors->has('phone'))? $errors->first('phone') : ""}}</p>
+
 
             <input type="submit" name="signup_submit" value="Sign me up"/>
-            <div class="small"><a href="{{route('showFormLogin')}}">Have an account? Go to login</a></div>
+            <div class="small"><a href="{{route('showFormLogin')}}" style="font-weight: bold; color: white">Have an account? Go to login</a></div>
         </div>
 
         <div class="right">

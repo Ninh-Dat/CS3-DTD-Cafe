@@ -45,8 +45,26 @@ class AuthController extends Controller
     public function register(Request $request)
     {
 
+        $valition = $request->validate([
+            'name'=>'required',
+            'role_id'=>'required',
+            'email'=>'required',
+            'password'=>'required',
+            'confirmPassword'=>'required',
+            'address'=>'required',
+            'phone'=>'required',
+        ],
+            [
+                "name.required"=>"Không được để trống",
+                "role_id.required"=>"Không được để trống",
+                "email.required"=>"Điền thông tin email",
+                "password.required"=>"Điền mật khẩu",
+                "confirmPassword.required"=>"Nhập lại mật khẩu",
+                "address.required"=>"Điền thông tin địa chỉ",
+                "phone.required"=>"Điền  số điện thoại",
+            ]);
 
-         $this->userService->create($request);
+         $this->userService->create($valition);
         return redirect()->route('showFormLogin');
     }
 
