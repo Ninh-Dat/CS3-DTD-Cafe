@@ -6,6 +6,7 @@ use App\Models\Role;
 use App\Repositories\RoleRepository;
 use App\Service\UserService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
@@ -21,7 +22,7 @@ class AuthController extends Controller
 
     public function showFormLogin()
     {
-        return view('backend.auth.login');
+        return view('auth.login');
     }
 
     public function login(Request $request){
@@ -38,13 +39,18 @@ class AuthController extends Controller
     public function showFormRegister()
     {
         $roles = $this->roleRepository->getAll();
-        return view('backend.auth.register', compact('roles'));
+        return view('auth.register', compact('roles'));
     }
 
     public function register(Request $request)
     {
 
          $this->userService->create($request);
+        return redirect()->route('showFormLogin');
+    }
+
+    public function logout(){
+        Auth::logout();
         return redirect()->route('showFormLogin');
     }
 }
