@@ -20,10 +20,12 @@ class CategoryController extends Controller
         return view('backend.category.list', compact('categories'));
     }
 
+
     public function create()
     {
         return view('backend.category.create');
     }
+
 
     public function store(Request $request)
     {
@@ -44,6 +46,7 @@ class CategoryController extends Controller
         $category = $this->categoryRepository->getById($id);
         return view('backend.category.update',compact('category'));
     }
+
 
     public function update(Request $request, $id)
     {
