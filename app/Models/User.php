@@ -11,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
 
-    public function oder()
+    public function oders()
     {
         return $this->hasMany(Order::class);
     }

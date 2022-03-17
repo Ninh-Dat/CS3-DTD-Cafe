@@ -2,8 +2,8 @@
 
 
 use App\Http\Controllers\CategoryController;
-
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductController;
 
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -20,10 +20,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.register');
-
 
     return view('backend.master');
+
 });
 Route::prefix('products')->group(function (){
     Route::get('/index',[ProductController::class,"index"])->name('products.index');
@@ -55,3 +54,6 @@ Route::get('/formLogin',[AuthController::class,'showFormLogin'])->name('showForm
 
 Route::get("/register",[AuthController::class,'showFormRegister'])->name("showForm");
 Route::post("/register",[AuthController::class,'register'])->name("register")->middleware('checkRegister');
+
+
+Route::get('/logout',[AuthController::class,'logout'])->name('logout');

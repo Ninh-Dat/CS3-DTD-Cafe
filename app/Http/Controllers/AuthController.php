@@ -3,17 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
+use App\Repositories\RoleRepository;
 use App\Service\UserService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
     public $userService;
+    public $roleRepository;
 
-    public function __construct(UserService $userService)
+    public function __construct(UserService $userService, RoleRepository $roleRepository)
     {
         $this->userService=$userService;
+        $this->roleRepository = $roleRepository;
     }
 
     public function showFormLogin()
@@ -23,8 +27,8 @@ class AuthController extends Controller
 
     public function login(Request $request){
         if ($this->userService->login($request)){
-//            return redirect()->route('products.index');
-            return view('welcome');
+            return redirect()->route('products.index');
+
         } else {
             Session::flash('msg', 'Tài khoản hoặc mật khẩu không đúng');
             return redirect()->back();
@@ -34,14 +38,21 @@ class AuthController extends Controller
 
     public function showFormRegister()
     {
-        $roles = Role::all();
+        $roles = $this->roleRepository->getAll();
         return view('auth.register', compact('roles'));
     }
 
     public function register(Request $request)
     {
 
+
          $this->userService->create($request);
+        return redirect()->route('showFormLogin');
+    }
+
+    public function logout(){
+        //logout
+        Auth::logout();
         return redirect()->route('showFormLogin');
     }
 }
