@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('auth.register');
+
 
     return view('backend.master');
 });
@@ -42,7 +44,13 @@ Route::prefix('category')->group(function () {
     Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
     Route::post('/create', [CategoryController::class, 'store'])->name('category.store');
     return view('auth.login');
+
 });
 
 Route::post('/login',[AuthController::class,'login'])->name('login');
 Route::get('/formLogin',[AuthController::class,'showFormLogin'])->name('showFormLogin');
+
+
+
+Route::get("/register",[AuthController::class,'showFormRegister'])->name("showForm");
+Route::post("/register",[AuthController::class,'register'])->name("register")->middleware('checkRegister');
