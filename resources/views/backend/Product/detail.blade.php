@@ -1,41 +1,22 @@
 @extends('master')
     @section('content')
-    <!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chi tiết</title>
-</head>
-<body>
-<table>
-    <thead>
-    <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>title</th>
-        <th>price</th>
-        <th>img</th>
-        <th>description</th>
-        <th>category_id</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>{{$product->id}}</td>
-        <td>{{$product->name}}</td>
-        <td>{{$product->title}}</td>
-        <td>{{$product->price}}</td>
-        <td>{{$product->img}}</td>
-        <td>{{$product->description}}</td>
-        <td>{{$product->category_id}}</td>
-    </tr>
-    </tbody>
-</table>
-</body>
-</html>
-
+<div class="container mt-3">
+<div class="card mb-3" style="max-width: 540px;">
+</div>
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src="{{'storage/'.$product->img}}" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{$product->title}}</h5>
+                <h3 class="card-title">{{$product->name}}</h3>
+                <p class="card-text">{{$product->description}}</p>
+                <h5>Giá : {{$product->price}}</h5>
+                <h5> Thể Loại : {{$product->category->name}}</h5>
+            </div>
+        </div>
+    </div>
+</div>
 
 @endsection
