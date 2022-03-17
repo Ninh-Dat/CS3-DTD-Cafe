@@ -45,11 +45,13 @@ class AuthController extends Controller
     public function register(Request $request)
     {
 
+
          $this->userService->create($request);
         return redirect()->route('showFormLogin');
     }
 
     public function logout(){
+        //logout
         Auth::logout();
         return redirect()->route('showFormLogin');
     }
