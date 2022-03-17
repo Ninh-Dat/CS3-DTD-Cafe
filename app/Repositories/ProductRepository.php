@@ -43,5 +43,6 @@ class ProductRepository extends BaseRepository
         $product->category_id = $request->category_id;
         $product->save();
     }
+
 }
 
