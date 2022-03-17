@@ -1,5 +1,4 @@
-@extends("backend.master")
-    @section('title','Danh sách sản phẩm')
+@extends("master")
     @section('content')
     <!doctype html>
 <html lang="en">
