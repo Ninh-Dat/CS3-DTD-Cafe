@@ -40,7 +40,7 @@ class AuthController extends Controller
             ]
         );
 
-        if ($this->userService->login($valition)){
+        if ($this->userService->login($request,$valition)){
             return redirect()->route('products.index');
 
         } else {
@@ -79,7 +79,7 @@ class AuthController extends Controller
             ]
         );
 
-         $this->userService->create($valition);
+         $this->userService->create($request,$valition);
         return redirect()->route('showFormLogin');
     }
 
