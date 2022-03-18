@@ -24,12 +24,11 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('backend.product.create', compact('categories'));
+        return view('backend.product.create',compact('categories'));
     }
 
     public function store(Request $request)
     {
-//    $request->validate([]
         $this->productRepository->store($request);
         return redirect()->route('products.index');
     }

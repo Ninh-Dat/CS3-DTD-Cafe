@@ -1,31 +1,38 @@
 @extends("master")
 @section('content')
-
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Thêm sản phẩm</title>
-</head>
-<body>
-<form action="" method="post" enctype="multipart/form-data">
-    @csrf
-    <input type="text" name="name" placeholder="nhập tên">
-    <input type="text" name="title" placeholder="nhập tiêu đề">
-    <input type="number" name="price" placeholder="nhập giá">
-    <input type="file" name="img" placeholder="nhập ảnh">
-    <input type="text" name="description" placeholder="nhập mô tả">
-    <select name="category_id">
-        @foreach($categories as $category)
-            <option value="{{$category->name}}">{{$category->name}}</option>
-        @endforeach
-    </select>
-    <button>Create</button>
-</form>
-</body>
-</html>
-
+    <form method="post" action="{{route('products.store')}}" enctype="multipart/form-data" class="container mt-3">
+        @csrf
+        <div class="form-group">
+            <label for="exampleFormControlInput1">tên</label>
+            <input type="text" class="form-control" name="name" placeholder="nhập tên">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">tiêu đề</label>
+            <input type="text" class="form-control" name="title" placeholder="nhập tiêu đề">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">giá tiền</label>
+            <input type="number" class="form-control" name="price" placeholder="nhập giá">
+        </div>
+        <div class="form-group">
+                <label for="exampleFormControlFile1">Example file input</label>
+                <input type="file" name="img" class="form-control-file" id="exampleFormControlFile1">
+{{--            <label for="exampleFormControlFile1">ảnh sản phẩm</label>--}}
+{{--            <input type="file" class="form-control" name="img" placeholder="nhập ảnh">--}}
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">Mô Tả</label>
+            <input type="text" class="form-control" name="description" placeholder="nhập mô tả">
+        </div>
+        <select name="category_id" class="form-control form-control-lg">
+            @foreach($categories as $category)
+            <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
+        </select>
+{{--            <div class="form-group">--}}
+{{--                <label for="exampleFormControlFile1">thêm thể loại</label>--}}
+{{--                <input type="number" class="form-control" name="category_id" value="1">--}}
+{{--            </div>--}}
+                <button>Create</button>
+    </form>
 @endsection

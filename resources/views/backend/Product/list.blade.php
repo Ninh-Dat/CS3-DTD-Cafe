@@ -1,5 +1,5 @@
 @extends("master")
-    @section('content')
+@section('content')
     <!doctype html>
 <html lang="en">
 <head>
