@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     public $productRepository;
+    public $categoryRepository;
 
-    public function __construct(ProductRepository $productRepository)
+    public function __construct(ProductRepository $productRepository , CategoryRepository $categoryRepository)
     {
         $this->productRepository = $productRepository;
+        $this->categoryRepository = $categoryRepository;
     }
 
     public function index()
@@ -23,7 +26,7 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
+        $categories =$this->categoryRepository->getAll();
         return view('backend.product.create',compact('categories'));
     }
 
@@ -42,8 +45,9 @@ class ProductController extends Controller
 
     public function edit($id)
     {
+        $categories =$this->categoryRepository->getAll();
         $product = $this->productRepository->getById($id);
-        return view('backend.product.update',compact('product'));
+        return view('backend.product.update',compact(['product','categories']));
     }
 
     public function update(Request $request, $id)
