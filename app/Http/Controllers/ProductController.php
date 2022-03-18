@@ -36,7 +36,6 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = $this->productRepository->getById($id);
-//        dd($product->category);
         return view('backend.product.detail', compact('product'));
 
     }
