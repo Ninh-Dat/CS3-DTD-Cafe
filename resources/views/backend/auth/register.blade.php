@@ -5,7 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register</title>
+    <title>Đăng ký khách hàng</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
+    @toastr_css
     <style>
         @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
 
@@ -224,5 +226,8 @@
         <div class="or">OR</div>
     </div>
 </form>
+@jquery
+@toastr_js
+@toastr_render
 </body>
 </html>

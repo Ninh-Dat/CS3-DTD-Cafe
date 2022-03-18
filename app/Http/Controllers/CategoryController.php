@@ -28,7 +28,19 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $this->categoryRepository->store($request);
+        $valition = $request->validate([
+            'name'=>'required',
+            'description'=>'required',
+        ],
+
+            [
+                "name.required"=>"Không được để trống",
+                "description.required"=>"Không được để trống",
+
+            ]
+        );
+        $this->categoryRepository->store($request , $valition);
+        toastr()->success('Tạo thể loại thánh công ^-^');
         return redirect()->route('category.index');
     }
 
@@ -50,7 +62,7 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $this->categoryRepository->update($request,$id);
-
+        toastr()->success('Update thành công');
         return redirect()->route('category.index');
     }
 
