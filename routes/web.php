@@ -11,8 +11,6 @@ Route::middleware('checkAuth')->group(function () {
 
         return view('backend.auth.login');
 
-
-        return view('backend.auth.login');
     });
     Route::prefix('products')->group(function () {
         Route::get('/index', [ProductController::class, "index"])->name('products.index');
@@ -46,12 +44,3 @@ Route::post("/register",[AuthController::class,'register'])->name("register")->m
 
 Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 
-Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/formLogin', [AuthController::class, 'showFormLogin'])->name('showFormLogin');
-
-
-Route::get("/register", [AuthController::class, 'showFormRegister'])->name("showForm");
-Route::post("/register", [AuthController::class, 'register'])->name("register")->middleware('checkRegister');
-
-
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
