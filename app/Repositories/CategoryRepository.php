@@ -16,6 +16,7 @@ class CategoryRepository extends BaseRepository
     {
         $category = new Category();
         $category->name = $request->name;
+        $category->description = $request->description;
         $category->save();
 
     }
@@ -24,6 +25,7 @@ class CategoryRepository extends BaseRepository
     {
         $category = Category::find($id);
         $category->name = $request->name;
+        $category->description = $request->description;
         $category->save();
     }
 
