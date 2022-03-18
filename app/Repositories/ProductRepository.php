@@ -19,9 +19,9 @@ class ProductRepository extends BaseRepository
 //        $data["img"] = $path;
         $product = new Product();
         $product->name = $request->name;
-        $product->title = $request->title;
-        $product->img = $path;
+        $product->title= $request->title;
         $product->price = $request->price;
+        $product->img = $path;
         $product->description = $request->description;
         $product->category_id = $request->category_id;
         $product->save();
@@ -36,12 +36,13 @@ class ProductRepository extends BaseRepository
         }
         $product = Product::find($id);
         $product->name = $request->name;
-        $product->title = $request->title;
-        $product->img = $path ?? $product->img;
+        $product->title= $request->title;
         $product->price = $request->price;
+        $product->img = $path ?? $product->img;
         $product->description = $request->description;
         $product->category_id = $request->category_id;
         $product->save();
     }
+
 }
 

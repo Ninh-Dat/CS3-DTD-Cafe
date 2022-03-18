@@ -9,15 +9,25 @@
 
 </head>
 <body>
+
 <nav  class="navbar navbar-expand-lg navbar-light bg-light" >
     <a class="navbar-brand" href="products.create"><img src="https://upload.wikimedia.org/wikipedia/vi/thumb/c/c9/Highlands_Coffee_logo.svg/1280px-Highlands_Coffee_logo.svg.png" width="80px" height="80px" alt="">
     </a>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="products.create"><img width="50px" src="{{asset('storage/images/logo.png')}}" alt="logo"></a>
+    <div class="navbar-brand"
+         style="font-size: 40px ; font-family: 'Comic Sans MS',cursive,sans-serif; color:#704e29 ">
+        TDT Coffee
+    </div>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+
             <li class="nav-item active">
                 <a class="nav-link" href="{{route('category.index')}}">Home<span class="sr-only">(current)</span></a>
             </li>
@@ -35,6 +45,21 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link"  style="color:blue" href="{{route('category.create')}}">Thêm thể loại</a>
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown">Quản lý đồ uống</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{route('category.index')}}">Loại đồ uống</a>
+                    <a class="dropdown-item" href="{{route('products.index')}}">Đồ uống</a>
+                </div>
+
+            <li class="nav-item">
+                <a class="nav-link" style="color: #2cc0af" href="{{route('products.create')}}">Thêm đồ uống</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  style="color:blue" href="{{route('category.create')}}">Thêm loại đồ uống</a>
+
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -48,6 +73,7 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                 {{\Illuminate\Support\Facades\Auth::user()->name}}
+                {{\Illuminate\Support\Facades\Auth::user()->name??""}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Action</a>
@@ -61,6 +87,8 @@
 
 
 @yield('title','')
+
+
 @yield("content")
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

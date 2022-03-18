@@ -19,18 +19,19 @@
     <div class="form-group">
         <label for="exampleFormControlInput1">Tên</label>
         <input type="text" class="form-control" name="name" placeholder="nhập tên">
-        <p style="color: red">{{($errors->has('name'))? $errors->first('name') : ""}}</p>
 
+        <p style="color: red">{{($errors->has('name'))? $errors->first('name') : ""}}</p>
     </div>
     <div class="form-group">
         <label for="exampleFormControlInput1">Title</label>
         <input type="text" class="form-control" name="title" placeholder="Tiêu đề">
-        <p style="color: red">{{($errors->has('title'))? $errors->first('title') : ""}}</p>
 
+        <p style="color: red">{{($errors->has('title'))? $errors->first('title') : ""}}</p>
     </div>
     <div class="form-group">
         <label for="exampleFormControlSelect2">Giá sản phẩm</label>
         <input type="number" class="form-control" name="price" placeholder="nhập giá">
+
         <p style="color: red">{{($errors->has('price'))? $errors->first('price') : ""}}</p>
 
     </div>
@@ -41,6 +42,7 @@
     <div class="form-group">
         <label for="exampleFormControlSelect2">Mô tả</label>
         <input type="text" class="form-control" name="description" placeholder="nhập mô tả">
+
         <p style="color: red">{{($errors->has('description'))? $errors->first('description') : ""}}</p>
 
     </div>
@@ -51,7 +53,9 @@
             <option value="{{$category->id}}">{{$category->name}}</option>
         @endforeach
     </select>
+
     <p style="color: red">{{($errors->has('category_id'))? $errors->first('category_id') : ""}}</p>
+
 
     <button class="btn btn-success mt-3">Create</button>
     <p><a href="{{route('products.index')}}"class="btn btn-warning mt-2">< Back</a></p>

@@ -30,7 +30,6 @@
             <td>{{$key+1}}</td>
             <td><img src="{{asset('storage/'.$product->img)}}" width="100px" height="70" alt=""></td>
             <td>{{$product->name}}</td>
-            <td>{{$product->title}}</td>
             <td>{{$product->price}}</td>
             <td>{{$product->category->name}}</td>
             <td><a href="{{route('products.show',$product->id)}}" type="button" class="btn btn-info">Detail</a>

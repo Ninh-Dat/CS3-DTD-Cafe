@@ -19,12 +19,15 @@
         <div class="form-group">
             <label for="exampleFormControlInput1">Tên</label>
             <input type="text" class="form-control" name="name" placeholder="Nhập tên">
+
             <p style="color: red">{{($errors->has('name'))? $errors->first('name') : ""}}</p>
+
 
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect2">Mô tả</label>
             <input type="text" class="form-control" name="description" placeholder="Nhập mô tả">
+
             <p style="color: red">{{($errors->has('description'))? $errors->first('description') : ""}}</p>
 
         </div>
