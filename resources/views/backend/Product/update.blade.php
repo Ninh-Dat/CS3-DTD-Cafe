@@ -1,25 +1,41 @@
-@extends("master")
+@extends("backend.master")
 @section('content')
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sửa sản phẩm</title>
-</head>
-<body>
-<form action="" method="post" enctype="multipart/form-data">
-    @csrf
-    <input type="text" name="name" placeholder="nhập tên" value="{{$product->name}}">
-    <input type="text" name="title" placeholder="nhập tiêu đề" value="{{$product->title}}">
-    <input type="number" name="price" placeholder="nhập giá" value="{{$product->price}}">
-    <input type="file" name="img" placeholder="nhập ảnh" value="{{$product->img}}">
-    <input type="text" name="description" placeholder="nhập mô tả" value="{{$product->description}}">
-    <input type="number" name="category_id" value="1" hidden value="{{$product->category_id}}">
-    <button>Update</button>
-</form>
-</body>
+<div class="container mt-3">
+    <h1>Update lại sản phẩm</h1>
+    <form method="post" action="{{route('products.update',$product->id)}}"  >
+        @csrf
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Tên</label>
+            <input type="text" class="form-control" name="name" value="{{$product->name}}">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Title</label>
+            <input type="text" class="form-control" name="title"value="{{$product->title}}" >
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">Giá sản phẩm</label>
+            <input type="number" class="form-control" name="price" value="{{$product->price}}">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Chọn ảnh</label>
+            <input type="file" name="img" class="form-control-file" id="exampleFormControlFile1" value="{{asset('storage/'.$product->img)}}" >
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">Mô tả</label>
+            <input type="text" class="form-control" name="description" value="{{$product->description}}">
+        </div>
+        <label for="exampleFormControlSelect2">Thể loại</label>
+        <select name="category_id" class="form-control ">
+            <option>--Tùy chọn--</option>
+            @foreach($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
+        </select>
+
+        <button class="btn btn-success mt-3">Update Product</button>
+        <p><a href="{{route('products.index')}}"class="btn btn-warning mt-2">< Back</a></p>
+    </form>
+    </div>
+    </body>
 </html>
 @endsection

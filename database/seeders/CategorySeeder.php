@@ -16,18 +16,22 @@ class CategorySeeder extends Seeder
     {
         $categories = new Category();
         $categories->name="Cà phê";
+        $categories->description="Cà phê ngon";
         $categories->save();
 
         $categories = new Category();
         $categories->name="Trà";
+        $categories->description="Trà thái nguyên xanh";
         $categories->save();
 
         $categories = new Category();
         $categories->name="Bánh";
+        $categories->description="Bánh ngon";
         $categories->save();
 
         $categories = new Category();
         $categories->name="Đá bào";
+        $categories->description="Đá bào mát lạnh";
         $categories->save();
     }
 }

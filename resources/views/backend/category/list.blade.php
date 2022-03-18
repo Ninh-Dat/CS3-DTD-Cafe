@@ -1,4 +1,4 @@
-@extends('master')
+@extends('backend.master')
 @section('content')
 <!doctype html>
 <html lang="en">
@@ -11,13 +11,13 @@
 </head>
 <body>
 <div class="container">
-    <table class="table">
-{{--        <a href="{{route('category.create')}}">CREATE</a>--}}
-        <thead class="thead-dark">
-        <tr style="text-align: center">
-            <th>ID</th>
-            <th>Name</th>
-            <th colspan="5">Action</th>
+    <table class="table mt-4">
+        <thead>
+        <tr>
+            <th>Stt</th>
+            <th>Tên</th>
+            <th>Mô tả</th>
+            <th colspan="3">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -25,9 +25,10 @@
             <tr>
                 <td>{{$key+1}}</td>
                 <td>{{$category->name}}</td>
-                <td><a href="{{route('category.detail',$category->id)}}" type="button" class="btn btn-info">Detail</a></td>
-                <td><a href="{{route('category.edit',$category->id)}}" type="button" class="btn btn-info">Update</a></td>
-                <td><a onclick="return confirm('Bạn có muốn xóa không ????')" href="{{route('category.destroy',$category->id)}}" type="button" class="btn btn-danger">Delete</a></td>
+                <td>{{$category->description}}</td>
+                <td><a href="{{route('category.detail',$category->id)}}" type="button" class="btn btn-info">Detail</a>
+                <a href="{{route('category.edit',$category->id)}}" type="button" class="btn btn-success">Update</a>
+                <a onclick="return confirm('Bạn có muốn xóa không ?')" href="{{route('category.destroy',$category->id)}}" type="button" class="btn btn-danger">Delete</a></td>
             </tr>
         @endforeach
         </tbody>
