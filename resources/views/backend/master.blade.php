@@ -15,7 +15,7 @@
     </a>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="products.create"><img width="50px" src="{{asset('storage/images/logo.png')}}" alt="logo"></a>
+    <a class="navbar-brand" href="products.create"><img width="100px" src="{{asset('../../../storage/images/1647574866_12.jpg')}}" alt="logo"></a>
     <div class="navbar-brand"
          style="font-size: 40px ; font-family: 'Comic Sans MS',cursive,sans-serif; color:#704e29 ">
         TDT Coffee
