@@ -32,13 +32,32 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $this->productRepository->store($request);
+
+        $valition = $request->validate([
+            'name'=>'required',
+            'title'=>'required',
+            'price'=>'required',
+            'description'=>'required',
+            'category_id'=>'required',
+        ],
+
+            [
+                "name.required"=>"Không được để trống",
+                "title.required"=>"Không được để trống",
+                "price.required"=>"Không được để trống",
+                "description.required"=>"Không được để trống",
+                "category_id.required"=>"Không được để trống",
+
+            ]
+        );
+        $this->productRepository->store($request,$valition);
         return redirect()->route('products.index');
     }
 
     public function show($id)
     {
         $product = $this->productRepository->getById($id);
+//        dd($product->category);
         return view('backend.product.detail', compact('product'));
 
     }

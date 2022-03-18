@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('checkAuth')->group(function () {
     Route::get('/', function () {
+
+        return view('backend.auth.login');
+
+
         return view('backend.auth.login');
     });
     Route::prefix('products')->group(function () {
@@ -31,6 +35,17 @@ Route::middleware('checkAuth')->group(function () {
         Route::post('/create', [CategoryController::class, 'store'])->name('category.store');
     });
 });
+Route::post('/login',[AuthController::class,'login'])->name('login');
+Route::get('/formLogin',[AuthController::class,'showFormLogin'])->name('showFormLogin');
+
+
+
+Route::get("/register",[AuthController::class,'showFormRegister'])->name("showForm");
+Route::post("/register",[AuthController::class,'register'])->name("register")->middleware('checkRegister');
+
+
+Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/formLogin', [AuthController::class, 'showFormLogin'])->name('showFormLogin');
 
