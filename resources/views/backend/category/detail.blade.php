@@ -1,4 +1,4 @@
-@extends("master")
+@extends("backend.master")
 @section('content')
 <!doctype html>
 <html lang="en">
@@ -10,23 +10,24 @@
     <title>Chi tiết</title>
 </head>
 <body>
-<table class="table table-dark">
-    <thead>
+<div class="container mt-4">
+<table class="table">
+
     <tr>
-        <th scope="col">ID</th>
+        <th scope="col">Name</th>
         <th scope="col">Name</th>
 
     </tr>
-    </thead>
-    <tbody>
+
     <tr>
-        <td>{{$category->id}}</td>
         <td>{{$category->name}}</td>
+        <td>{{$category->description}}</td>
     </tr>
 
-
-    </tbody>
 </table>
+    <p><a href="{{route('category.index')}}"class="btn btn-warning mt-2">< Back</a></p>
+
+</div>
 </body>
 </html>
 
