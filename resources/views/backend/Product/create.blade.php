@@ -18,7 +18,11 @@
     <input type="number" name="price" placeholder="nhập giá">
     <input type="file" name="img" placeholder="nhập ảnh">
     <input type="text" name="description" placeholder="nhập mô tả">
-    <input type="number" name="category_id" value="1" hidden>
+    <select name="category_id">
+        @foreach($categories as $category)
+            <option value="{{$category->name}}">{{$category->name}}</option>
+        @endforeach
+    </select>
     <button>Create</button>
 </form>
 </body>
