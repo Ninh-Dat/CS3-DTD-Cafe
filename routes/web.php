@@ -5,20 +5,19 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('backend.auth.login');
-});
 
-
-Route::middleware('checkAuth')->group(function (){
-    Route::prefix('products')->group(function (){
-        Route::get('/index',[ProductController::class,"index"])->name('products.index');
-        Route::get('/{id}/destroy',[ProductController::class,"destroy"])->name('products.destroy');
-        Route::get('/{id}/show',[ProductController::class,"show"])->name('products.show');
-        Route::get('/create',[ProductController::class,"create"])->name('products.create');
-        Route::post('/create',[ProductController::class,"store"])->name('products.store');
-        Route::post('{id}/update',[ProductController::class,"update"])->name('products.update');
-        Route::get('{id}/update',[ProductController::class,"edit"])->name('products.edit');
+Route::middleware('checkAuth')->group(function () {
+    Route::get('/', function () {
+        return view('backend.auth.login');
+    });
+    Route::prefix('products')->group(function () {
+        Route::get('/index', [ProductController::class, "index"])->name('products.index');
+        Route::get('/{id}/destroy', [ProductController::class, "destroy"])->name('products.destroy');
+        Route::get('/{id}/show', [ProductController::class, "show"])->name('products.show');
+        Route::get('/create', [ProductController::class, "create"])->name('products.create');
+        Route::post('/create', [ProductController::class, "store"])->name('products.store');
+        Route::post('{id}/update', [ProductController::class, "update"])->name('products.update');
+        Route::get('{id}/update', [ProductController::class, "edit"])->name('products.edit');
     });
 
 
@@ -32,15 +31,12 @@ Route::middleware('checkAuth')->group(function (){
         Route::post('/create', [CategoryController::class, 'store'])->name('category.store');
     });
 });
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/formLogin', [AuthController::class, 'showFormLogin'])->name('showFormLogin');
 
 
-Route::post('/login',[AuthController::class,'login'])->name('login');
-Route::get('/formLogin',[AuthController::class,'showFormLogin'])->name('showFormLogin');
+Route::get("/register", [AuthController::class, 'showFormRegister'])->name("showForm");
+Route::post("/register", [AuthController::class, 'register'])->name("register")->middleware('checkRegister');
 
 
-
-Route::get("/register",[AuthController::class,'showFormRegister'])->name("showForm");
-Route::post("/register",[AuthController::class,'register'])->name("register")->middleware('checkRegister');
-
-
-Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
