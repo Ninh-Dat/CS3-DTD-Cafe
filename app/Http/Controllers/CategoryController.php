@@ -20,6 +20,7 @@ class CategoryController extends Controller
         return view('backend.category.list', compact('categories'));
     }
 
+
     public function create()
     {
         return view('backend.category.create');
@@ -27,7 +28,18 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $this->categoryRepository->store($request);
+        $valition = $request->validate([
+            'name'=>'required',
+            'description'=>'required',
+        ],
+
+            [
+                "name.required"=>"Không được để trống",
+                "description.required"=>"Không được để trống",
+
+            ]
+        );
+        $this->categoryRepository->store($request , $valition);
         return redirect()->route('category.index');
     }
 
@@ -44,6 +56,7 @@ class CategoryController extends Controller
         $category = $this->categoryRepository->getById($id);
         return view('backend.category.update',compact('category'));
     }
+
 
     public function update(Request $request, $id)
     {

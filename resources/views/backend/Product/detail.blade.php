@@ -1,42 +1,21 @@
 @extends('backend.master')
-    @section('title','thông tin sản phẩm ')
     @section('content')
-    <!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<table>
-    <thead>
-    <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>title</th>
-        <th>price</th>
-        <th>img</th>
-        <th>description</th>
-        <th>category_id</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>{{$product->id}}</td>
-        <td>{{$product->name}}</td>
-        <td>{{$product->title}}</td>
-        <td>{{$product->price}}</td>
-        <td>{{$product->img}}</td>
-        <td>{{$product->description}}</td>
-        <td>{{$product->category_id}}</td>
-    </tr>
-    </tbody>
-</table>
-</body>
-</html>
-
+<div class="container mt-4">
+    <h1>Thông tin sản phẩm</h1>
+    <div class="row no-gutters">
+        <div class="col-md-3">
+            <h3 class="card-title ml-5" style="font-size:35px; color: #915229">{{$product->name}}</h3>
+            <img src="{{asset('storage/'.$product->img)}}" alt="..." width="200" height="200">
+        </div>
+        <div class="col-md-9 mt-5 ">
+            <div class="card-body" style="font-size: 25px; font-family:'Comic Sans MS'">
+                <p class="card-text" >{{$product->description}}</p>
+                <p>Giá:<b> {{$product->price}}</b> </p>
+                <p>Thể Loại: <b>{{$product->category->name}}</b></p>
+                <a href="{{route('products.index')}}"class="btn btn-success">< Back</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 @endsection

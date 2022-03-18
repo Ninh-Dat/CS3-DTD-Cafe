@@ -1,10 +1,8 @@
 <?php
 
-
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
-
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +20,7 @@ Route::middleware('checkAuth')->group(function () {
 
     Route::get('/', function () {
 
-        return view('backend.master');
+        return view('backend.auth.login');
 
     });
     Route::prefix('products')->group(function () {
@@ -44,12 +42,8 @@ Route::middleware('checkAuth')->group(function () {
         Route::post('{id}/update', [CategoryController::class, 'update'])->name('category.update');
         Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
         Route::post('/create', [CategoryController::class, 'store'])->name('category.store');
-
     });
 });
-
-
-
 Route::post('/login',[AuthController::class,'login'])->name('login');
 Route::get('/formLogin',[AuthController::class,'showFormLogin'])->name('showFormLogin');
 
