@@ -5,7 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
+    @toastr_css
     <style>
         * {
             padding: 0px;
@@ -32,7 +34,7 @@
         }
 
         .form_class {
-            width: 300px;
+            width: 400px;
             padding: 40px;
             margin-top: 200px;
             border-radius: 8px;
@@ -123,6 +125,9 @@
     </form>
 </main>
 
+@jquery
+@toastr_js
+@toastr_render
 </body>
 
 </html>
