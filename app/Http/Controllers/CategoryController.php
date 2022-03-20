@@ -28,7 +28,18 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $this->categoryRepository->store($request);
+        $valition = $request->validate([
+            'name'=>'required',
+            'description'=>'required',
+        ],
+
+            [
+                "name.required"=>"Không được để trống",
+                "description.required"=>"Không được để trống",
+
+            ]
+        );
+        $this->categoryRepository->store($request , $valition);
         return redirect()->route('category.index');
     }
 

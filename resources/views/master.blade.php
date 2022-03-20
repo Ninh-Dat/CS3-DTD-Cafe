@@ -15,6 +15,7 @@
          style="font-size: 40px ; font-family: 'Comic Sans MS',cursive,sans-serif; color:#704e29 ">
         TDT Coffee
     </div>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -23,18 +24,21 @@
         <ul class="navbar-nav mr-auto">
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown">Quản lý đồ uống</a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Quản lý đồ uống
+                </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{route('category.index')}}">Loại đồ uống</a>
-                    <a class="dropdown-item" href="{{route('products.index')}}">Đồ uống</a>
-                </div>
+                    <a class="nav-link" href="{{route('category.index')}}">Thể loại<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{route('products.index')}}">Sản phẩm<span class="sr-only">(current)</span></a>
 
+                </div>
             <li class="nav-item">
-                <a class="nav-link" style="color: #2cc0af" href="{{route('products.create')}}">Thêm đồ uống</a>
+                <a class="nav-link" style="color: #2cc0af" href="{{route('products.create')}}">Thêm sản phẩm</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link"  style="color:blue" href="{{route('category.create')}}">Thêm loại đồ uống</a>
+                <a class="nav-link"  style="color:blue" href="{{route('category.create')}}">Thêm thể loại</a>
             </li>
+
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" aria-label="Search">
