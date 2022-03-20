@@ -41,10 +41,12 @@ class AuthController extends Controller
         );
 
         if ($this->userService->login($request,$valition)){
+            toastr()->success('Đăng nhập thành công');
             return redirect()->route('products.index');
 
         } else {
-            Session::flash('msg', 'Tài khoản hoặc mật khẩu không đúng');
+            Session::flash('msg', 'Tài khoản  không đúng');
+            toastr()->info('Đăng nhập không thành công');
             return redirect()->back();
         }
 
@@ -80,6 +82,7 @@ class AuthController extends Controller
         );
 
          $this->userService->create($request,$valition);
+        toastr()->success('Đăng ký thành công');
         return redirect()->route('showFormLogin');
     }
 

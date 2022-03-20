@@ -51,6 +51,7 @@ class ProductController extends Controller
             ]
         );
         $this->productRepository->store($request,$valition);
+        toastr()->success('Tạo sản phẩm thành công');
         return redirect()->route('products.index');
     }
 
@@ -72,6 +73,7 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $this->productRepository->update($request,$id);
+        toastr()->success('Update thành công');
         return redirect()->route('products.index');
     }
 
