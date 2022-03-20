@@ -10,7 +10,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="products.create"><img width="50px" src="{{asset('storage/images/logo.png')}}" alt="logo"></a>
+    <a class="navbar-brand" href=""><img width="50px" src="{{asset('storage/images/logo.png')}}" alt="logo"></a>
     <div class="navbar-brand"
          style="font-size: 40px ; font-family: 'Comic Sans MS',cursive,sans-serif; color:#704e29 ">
         TDT Coffee
@@ -49,8 +49,8 @@
                 {{\Illuminate\Support\Facades\Auth::user()->name??""}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Cài đặt</a>
+                <a class="dropdown-item" href="#">Thông tin</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
             </div>

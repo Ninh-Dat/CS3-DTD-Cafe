@@ -2,10 +2,20 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
+//Home
+Route::prefix('/')->group(function (){
+   Route::get('home',[HomeController::class,'homeDisplay'])->name('homeDisplay');
+   Route::get('{id}/homeDetail',[HomeController::class,'homeDetail'])->name('homeDetail');
+});
 
+
+
+
+//Admin
 Route::middleware('checkAuth')->group(function () {
     Route::get('/', function () {
         return view('backend.auth.login');

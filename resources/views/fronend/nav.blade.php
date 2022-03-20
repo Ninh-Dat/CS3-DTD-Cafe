@@ -1,1 +1,4 @@
+@extends("master")
+@section('content')
+
 
