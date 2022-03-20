@@ -396,7 +396,7 @@
                 <li class="header__menu--item"><a href="">Giới thiệu</a></li>
                 <li class="header__menu--item"><a href="{{route("homeDisplay")}}">Sản phẩm</a></li>
                 <li class="header__menu--item"><a href="">Cửa hàng</a></li>
-                <li class="header__menu--item "><a href="">{{\Illuminate\Support\Facades\Auth::user()->name??""}}</a> </li>
+                <li class="header__menu--item"><a href="">{{\Illuminate\Support\Facades\Auth::user()->name??""}}</a></li>
             </ul>
         </div>
         <div class="header__cart">
@@ -409,77 +409,17 @@
     <img src="https://bizweb.dktcdn.net/100/159/843/themes/211392/assets/slider-02.jpg?1638342170883" alt="">
 </div>
 
-<!-- //NOTE: BODY-CONTENT -->
-<div id="body-content">
-    <div class="body__brand">
-        <img src="https://bizweb.dktcdn.net/100/159/843/themes/211392/assets/coffees.svg?1638342170883" alt=""
-             class="body__brand--logo">
-        <p class="body__brand--description">Coffee và tôi</p>
-    </div>
-
-    <div class="body__categories">
-        <ul class="body__categories--list">
-            <li class="body__category--item">
-                <img src="//bizweb.dktcdn.net/100/159/843/themes/211392/assets/index_special_strong.png?1638342170883"
-                     alt="" class="category--image">
-                <p class="category--title">Sáng tạo</p>
-                <p class="category--description">hương và vị</p>
-                <button class="button--category">Chi tiết</button>
-            </li>
-            <li class="body__category--item">
-                <img src="//bizweb.dktcdn.net/100/159/843/themes/211392/assets/index_special_cookie.png?1638342170883"
-                     alt="" class="category--image">
-                <p class="category--title">Bánh quy</p>
-                <p class="category--description">& nhiều hơn</p>
-                <button class="button--category">Chi tiết</button>
-            </li>
-            <li class="body__category--item">
-                <img src="//bizweb.dktcdn.net/100/159/843/themes/211392/assets/index_special_special.png?1638342170883"
-                     alt="" class="category--image">
-                <p class="category--title">Đặc biệt</p>
-                <p class="category--description">niềm vui</p>
-                <button class="button--category">Chi tiết</button>
-            </li>
-        </ul>
-    </div>
-    <div class="body__contact">
-        <p class="category--description">Gọi điện giao hàng tận nơi</p>
-        <p class="category--title"><i class="fas fa-phone"></i> 1900 6750</p>
-        <img src="https://bizweb.dktcdn.net/100/159/843/themes/211392/assets/takeaway.png?1638342170883" alt=""
-             class="body__contact--img">
-    </div>
-    <div class="body__slogan">
-        <img class="body__slogan--image1"
-             src="https://bizweb.dktcdn.net/100/159/843/themes/211392/assets/milk-pour2.png?1638342170883">
-        <img class="body__slogan--image2"
-             src="//bizweb.dktcdn.net/100/159/843/themes/211392/assets/pour-cup.png?1638342170883">
-        <div class="body__slogan--content">
-            <p class="category--title">"COFFEE AND YOU"
-                CỬA HÀNG CÀ PHÊ PREMIUM</p>
-            <p class="category--description">Cà phê không phải là thú thanh thản như trà, càng không mạnh mẽ bạo
-                liệt
-                như rượu. Người thưởng thức nhẹ nhàng cho rằng cà phê là gạch nối giữa niềm vui và nỗi buồn. Với ai
-                đang
-                muộn phiền, cà phê càng day dứt như một bản nhạc có nhiều dấu lặng. Còn những kẻ môn đồ của giáo
-                phái cà
-                phê thì cho đó là người đàn bà mang bùa ngải trong mình...</p>
-            <button class="button--category">Tìm hiểu thêm</button>
-        </div>
-    </div>
-
-</div>
 
 
-<div id="footer">
-    <p class="footer__slogan">Chúc mọi người vui vẻ!!!</p>
-</div>
+@yield("content")
+
 
 </body>
 
 
 
 
-@yield("content")
+
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

@@ -1,4 +1,4 @@
-@extends('homeNav')
+@extends('master')
     @section('content')
 <div class="container mt-4">
     <h1>Thông tin sản phẩm</h1>

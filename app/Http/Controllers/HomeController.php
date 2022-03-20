@@ -28,6 +28,8 @@ class HomeController
         $productHome = $this->productRepository->getById($id);
         return view('home.homeDetail', compact('productHome'));
     }
-
+public function homenav(){
+        return view('homeNav');
+}
 
 }

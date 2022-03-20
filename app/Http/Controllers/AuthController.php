@@ -41,7 +41,7 @@ class AuthController extends Controller
         );
 
         if ($this->userService->login($request,$valition)){
-            return redirect()->route('products.index');
+            return redirect()->route('homeNav');
 
         } else {
             Session::flash('msg', 'Tài khoản hoặc mật khẩu không đúng');

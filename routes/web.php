@@ -7,21 +7,28 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 //Home
-Route::prefix('/')->group(function (){
-   Route::get('home',[HomeController::class,'homeDisplay'])->name('homeDisplay');
-   Route::get('{id}/homeDetail',[HomeController::class,'homeDetail'])->name('homeDetail');
+
+
+
+Route::get('/', function () {
+
+    return view('backend.auth.login');
+
 });
-
-
-
 
 //Admin
 Route::middleware('checkAuth')->group(function () {
-    Route::get('/', function () {
 
-        return view('backend.auth.login');
+    Route::get('/Trangchu',[HomeController::class,'homenav'])->name("homeNav");
 
+
+    Route::prefix('/homes')->group(function (){
+        Route::get('/home',[HomeController::class,'homeDisplay'])->name('homeDisplay');
+        Route::get('{id}/homeDetail',[HomeController::class,'homeDetail'])->name('homeDetail');
     });
+
+
+
     Route::prefix('products')->group(function () {
         Route::get('/index', [ProductController::class, "index"])->name('products.index');
         Route::get('/{id}/destroy', [ProductController::class, "destroy"])->name('products.destroy');
