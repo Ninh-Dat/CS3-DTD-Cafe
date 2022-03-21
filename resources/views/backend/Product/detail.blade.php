@@ -1,4 +1,4 @@
-@extends('backend.master')
+@extends('master')
     @section('content')
 <div class="container mt-4">
     <h1>Thông tin sản phẩm</h1>
@@ -12,7 +12,7 @@
                 <p class="card-text" >{{$product->description}}</p>
                 <p>Giá:<b> {{$product->price}}</b> </p>
                 <p>Thể Loại: <b>{{$product->category->name}}</b></p>
-                <a href="{{route('products.index')}}"class="btn btn-success">< Back</a>
+                <a href="{{route('products.index')}}"class="btn btn-success">Back</a>
             </div>
         </div>
     </div>

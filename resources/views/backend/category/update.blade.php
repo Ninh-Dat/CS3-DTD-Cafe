@@ -1,4 +1,4 @@
-@extends("backend.master")
+@extends("master")
 @section('content')
     <div class="container mt-3">
         <h1>Update lại thể loại</h1>

@@ -18,7 +18,7 @@
         body {
             margin: 0;
             padding: 0;
-            background: url(https://cafebiz.cafebizcdn.vn/thumb_w/640/162123310254002176/2021/1/19/untitled-3-16110209562551855046687-16110209760331882533733.jpg) no-repeat center center;
+            background: url(https://res.klook.com/image/upload/fl_lossy.progressive/q_65/c_fill,w_1360/blogvn/2018/09/quan-cafe-dep-seoul.jpg) no-repeat center center;
 
             background-size: cover;
             font-size: 16px;
